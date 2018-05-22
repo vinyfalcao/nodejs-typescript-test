@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/debug": "0.0.30",
+    "@types/express": "^4.11.1",
+    "@types/node": "^10.1.2",
     "typescript": "^2.8.3"
   },
   "dependencies": {
