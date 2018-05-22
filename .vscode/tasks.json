@@ -1,0 +1,19 @@
+{
+    "tasks": [
+        {
+            "type": "typescript",
+            "tsconfig": "nodejs-typescript-test\\teste-app\\tsconfig.json",
+            "option": "watch",
+            "problemMatcher": [
+                "$tsc-watch"
+            ]
+        },
+        {
+            "type": "typescript",
+            "tsconfig": "teste-app\\tsconfig.json",
+            "problemMatcher": [
+                "$tsc"
+            ]
+        }
+    ]
+}
