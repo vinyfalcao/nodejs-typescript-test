@@ -9,8 +9,13 @@ import * as express from 'express'
         }
 
         private routes(): void{
+            this.router.use(function timeLog(req, res, next) {
+                console.log('Time: ', Date.now());
+                next();
+              });
+
             this.router.get("/", (req, res)=>{
-                res.send("Licitações Page")
+                res.json({id: 1, name : "Licitação 1"});
             })
         }
 

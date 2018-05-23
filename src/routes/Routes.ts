@@ -2,16 +2,9 @@ import * as express from 'express'
 import Licitacoes from './Licitacoes'
 
     class Routes{
-        private express: express.Application
-
-        constructor(){
-            this.express = express();
-            this.configRoutes();
+       public configRoutes(app: express.Application): void{
+           console.log("Configuring Routes");
+           app.use("/teste", Licitacoes);
         }
-
-       public configRoutes(): void{
-            this.express.use("/licitacoes", Licitacoes)
-        }
-
     }
 export default new Routes()

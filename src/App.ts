@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
-import Routes from './routes/Routes';
+import Licitacoes from './routes/Licitacoes'
 
 class App{
     public express: express.Application
@@ -10,8 +10,7 @@ class App{
     constructor(){
         this.express = express()
         this.middleware();
-        Routes.configRoutes();
-    }
+        this.defineRoutes();    }
 
     private middleware(): void{
         this.express.use(logger('dev'));
@@ -19,12 +18,9 @@ class App{
         this.express.use(bodyParser.urlencoded({ extended: false }));
     }
 
-    private routes(): void{
-        const router = express.Router()
-        router.get('/', (req, res) => {
-            res.send('Hello World! FOI?')
-        })
-        this.express.use('/', router);
+    private defineRoutes(): void{
+        this.express.use("/licitacoes", Licitacoes);
     }
+
 }
 export default new App().express
