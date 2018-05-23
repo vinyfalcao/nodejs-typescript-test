@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
+import Routes from './routes/Routes';
 
 class App{
     public express: express.Application
@@ -9,7 +10,7 @@ class App{
     constructor(){
         this.express = express()
         this.middleware();
-        this.routes()
+        Routes.configRoutes();
     }
 
     private middleware(): void{
