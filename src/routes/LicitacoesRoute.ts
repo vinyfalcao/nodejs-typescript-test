@@ -1,6 +1,7 @@
 import * as express from 'express'
+import SenadorService from '../services/SenadorService'
 
-    class Licitacoes{
+    class SenadorRoute{
         public router: express.Router
 
         constructor(){
@@ -15,10 +16,13 @@ import * as express from 'express'
               });
 
             this.router.get("/", (req, res)=>{
-                res.json({id: 1, name : "Licitação 1"});
+                SenadorService.getLicitacoes((response) =>{
+                    res.json(response);
+                });
+                
             })
         }
 
     }
 
-export default new Licitacoes().router
+export default new SenadorRoute().router

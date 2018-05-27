@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
-import Licitacoes from './routes/Licitacoes'
+import LicitacoesRoute from './routes/LicitacoesRoute'
 
 class App{
     public express: express.Application
@@ -19,7 +19,7 @@ class App{
     }
 
     private defineRoutes(): void{
-        this.express.use("/licitacoes", Licitacoes);
+        this.express.use("/senadores", LicitacoesRoute);
     }
 
 }
