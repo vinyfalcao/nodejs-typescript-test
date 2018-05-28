@@ -1,25 +1,15 @@
-import * as http from 'http'
+import * as request from 'request'
 
 class SenadorClient{
-
-
-
     public getSenadores(callback){
-        var options = {
-            host : "legis.senado.gov.br",
-            port : "80",
-            path : "/dadosabertos/senador/lista/atual",
-            headers: {accept : "application/json"}
-        }
-        http.get(options, (res) =>{
-            console.log("Status: " + res.statusCode);
-            res.on('data',function(data){
-                callback(data);
+        request('http://legis.senado.gov.br/dadosabertos/senador/lista/atual',
+        { json: true },
+        (err, res, body) => {
+                if (err) { 
+                    return console.log(err);
+                }
+                callback(body);
             });
-        }).on('error', (e)=>{
-            console.log("Got Error: " + e.message);
-        });
-    }
-
+        }
 }
 export default new SenadorClient()
