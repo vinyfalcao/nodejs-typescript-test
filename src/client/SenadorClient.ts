@@ -6,6 +6,7 @@ class SenadorClient {
             { json: true },
             (err, res, body) => {
                 if (err) {
+                    console.log(err);
                     return console.log(err);
                 }
                 callback(body);
