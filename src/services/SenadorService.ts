@@ -1,5 +1,5 @@
-import SenadorClient from '../client/SenadorClient'
-import Senador from '../interfaces/Senador'
+import SenadorClient from '../rest-client/SenadorClient'
+import { Senador }  from '../interfaces/Senador'
 class SenadorService {
 
     public getLicitacoes(callback) {

@@ -1,9 +1,10 @@
 import * as express from 'express'
+import AvaliacaoService from '../services/AvaliacaoService';
 
 
 class AvaliacaoRoute{
 
-    public router: express.Router
+    public router: express.Router;
 
         constructor(){
             this.router = express.Router()
@@ -11,7 +12,11 @@ class AvaliacaoRoute{
         }
 
         private routes(): void{
+            this.router.post("/", this.save);
+        }
 
+        private save(req, res){
+            AvaliacaoService.saveAvaliacao(req.body);
         }
 
         

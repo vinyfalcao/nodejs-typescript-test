@@ -1,6 +1,7 @@
-interface Senador{
-    CodigoParlamentar: string;
-    NomeParlamentar: string;
-}
+import { Avaliacao } from "./Avaliacao";
 
-export default Senador
+export interface Senador{
+    CodigoParlamentar: String;
+    NomeParlamentar?: String;
+    avaliacoes?: [Avaliacao];
+}
