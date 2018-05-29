@@ -15,12 +15,13 @@ import SenadorService from '../services/SenadorService'
                 next();
               });
 
-            this.router.get("/", (req, res)=>{
-                SenadorService.getLicitacoes((response) =>{
-                    res.json(response);
-                });
-                
-            })
+            this.router.get("/", this.getAll);
+        }
+
+        private getAll(req, res): void{
+            SenadorService.getLicitacoes((response) =>{
+                res.json(response);
+            });
         }
 
     }
